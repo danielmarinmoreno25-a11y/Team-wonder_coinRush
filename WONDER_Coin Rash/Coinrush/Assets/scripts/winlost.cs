@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class winlost : MonoBehaviour
 {
     // Start is called before the first frame update
-   
+ 
+    public GameObject menudeperderGO; // creamos una variable tipo gameobjet porque es el tipo de dato que guarda todo nuestro menu
+    public bool a;
     // Start is called before the first frame update
     void Start()
     {
+        a = true;// lo ponemos a true
         Time.timeScale = 1.0f;
     }
 
@@ -32,7 +35,7 @@ public class winlost : MonoBehaviour
 
     public void ExitPerder()
     {
-       // a = true; // reanudamos
+        a = true; // reanudamos
         Time.timeScale = 0.0f; // activamos el tiempo
         SceneManager.LoadScene(0);
 
@@ -46,7 +49,8 @@ public class winlost : MonoBehaviour
 
     public void ExitGanar()
     {
-       // a = true; // reanudamos
+
+        a = true; // reanudamos
         Time.timeScale = 0.0f; // activamos el tiempo
         SceneManager.LoadScene(0);
     }
