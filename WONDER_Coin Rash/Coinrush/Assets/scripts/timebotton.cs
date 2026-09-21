@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class timebotton : MonoBehaviour
 {
+    public GameObject menudeperderGO;
+    public GameObject menudeganarGO;
     public float time;
-    public GameObject CanvastimeGO;
-    private bool pausedtime;
+    private bool a;
     // Start is called before the first frame update
     void Start()
     {
-       
+        menudeperderGO.SetActive(false);
+        menudeganarGO.SetActive(false);
+
     }
 
     // Update is called once per frame
@@ -18,29 +21,28 @@ public class timebotton : MonoBehaviour
     {
         time -= Time.deltaTime;
         times();
+
     }
 
     public void times()
     {
-        if (time <= 0)
+        if (time >= 0 /*&&*/) // pierde
         {
-            pausedtime = true;
+            a = true;
             Time.timeScale = 0.0f;
-            CanvastimeGO.SetActive(true);
+            menudeperderGO.SetActive(true);
         }
 
-        else if (time >= 60)
+        if (time <= 0 /*&&*/) // gana // siempre deberia GANAR
         {
-            pausedtime = true;
+            a = true;
             Time.timeScale = 0.0f;
-            CanvastimeGO.SetActive(true);
+            menudeganarGO.SetActive(true);
         }
 
-        else
-        {
-            pausedtime = false;
-            Time.timeScale = 1.0f;
-            CanvastimeGO.SetActive(false);
-        }
     }
+
+
+
 }
+
